@@ -13,7 +13,7 @@ class App extends Component {
 		this.setState({ names: newNames });
 	};
 	addName = (name) => {
-		const newNames = {name, ...this.state.names};
+		const newNames = [name, ...this.state.names];
 		this.setState({ names: newNames });
 	}
 
@@ -21,7 +21,7 @@ class App extends Component {
 		return (
 			<div className="App">
 				<h1>Name Tag Generator</h1>
-				<UserInput addName (this.addName) />
+				<UserInput addName={this.addName} />
 				<NameTagList names={this.state.names} removeName={this.removeName} />
 			</div>
 		);
